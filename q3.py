@@ -1,6 +1,8 @@
 list1=input("enter  list1").split()
 list2=input("enter list2").split()
 
+#checking each numbre exists in the other list with O(n)
+
 count=0
 for i in range(0,len(list1)):
       if(list1[i] in list2):

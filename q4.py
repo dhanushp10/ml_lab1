@@ -14,6 +14,7 @@ for i in range(r):
         print(m[i][j], end = " ")
     print()
 
+# finding transpose by swapping (i,j)
 for i in range(0,r):
     for j in range(0,c):
         if(i<=j):
