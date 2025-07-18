@@ -3,6 +3,7 @@ import numpy as np
 
 excel_file_path = "ml_lab1\Lab Session Data.xlsx"
 
+
 df = pd.read_excel(excel_file_path,sheet_name='Purchase data')
 
 print(df.head())
