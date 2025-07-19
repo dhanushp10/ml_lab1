@@ -14,11 +14,10 @@ print(df.dtypes)
 #tsh,t3 measured ,t3,tt4,t4u,fit,tbg,referral source,condition 
 
 
+#nominal(m,f) , ordinal(low,med,high) , binary and numeric
 
-# For ordinal encoding
 
-
-# For one-hot encoding
+# For nominal encoding
 nominal_cols = ["age","sex"]
 df = pd.get_dummies(df, columns=nominal_cols, drop_first=True)
 
