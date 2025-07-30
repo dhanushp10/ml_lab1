@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler
-
+import math
 
 col = [
     "duration",
@@ -52,11 +52,22 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 print(X_test)
 print(y_test)
+
 # a5
 knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, y_train)
 
+ypred=knn.predict(X_test)
+print(ypred)
+mse=0
+for i in range(len(ypred)):
+     mse=(ypred[i]-y_test[i])**2+mse
 
+mse=(mse)/len(ypred) 
+
+print("the mean square error is " ,mse)
+rmse=math.pow(mse,1/2)
+print("the root meab square error is " ,rmse)
 
 # mse_sklearn = mean_squared_error(y_true, y_pred)
 # print(f"MSE using scikit-learn: {mse_sklearn}")
