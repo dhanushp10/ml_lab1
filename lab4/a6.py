@@ -33,7 +33,7 @@ col = [
     "std_idle",
     "class1"
 ]
-df=pd.read_csv("/content/lab3_vpn_nonvpndataset.txt",names=col)
+df=pd.read_csv("ml_lab1/lab3/lab3_vpn_nonvpndataset.txt",names=col)
 
 #shuffling of data using frac
 res = df.sample(frac=1).reset_index(drop=True)
@@ -55,7 +55,7 @@ ytrain=data["class1"]
 knn=KNeighborsClassifier(n_neighbors=3)
 knn.fit(xtrain,ytrain)#trained data fitting
 
-test_data=pd.read_csv("/content/combine.txt",names=col)
+test_data=pd.read_csv("ml_lab1/2016_dataset/combine.txt",names=col)
 
 test_data = test_data[test_data["class1"].isin(['MAIL' ,'STREAMING', 'VPN-MAIL','VPN-STREAMING'])]
 
@@ -92,6 +92,24 @@ for i in range(4,11):
   plt.xlabel("total_fiat")
   plt.ylabel("total_biat")
   plt.show()
+
+
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
+
+
+param_grid = {'n_neighbors': np.arange(1, 21)}  # k from 1 to 20
+
+
+knn = KNeighborsClassifier()
+
+grid_search = GridSearchCV(knn, param_grid, cv=5, n_jobs=-1, scoring='accuracy')
+grid_search.fit(xtrain, ytrain)  # Use your training data
+
+print("Optimal k value:", grid_search.best_params_['n_neighbors']) 
+print("Best cross-validated accuracy:", grid_search.best_score_)
+
 
   
 
