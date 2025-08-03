@@ -1,3 +1,5 @@
+#using total_fiat and total-biat
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -44,7 +46,9 @@ data=res.loc[:,["total_fiat","total_biat","class1"]]
 data["color"]=(data["class1"]).apply(lambda x: "blue" if x=="VPN" else "red")
 
 
-plt.scatter(data["total_fiat"],data["total_biat"],c=data["color"])
+plt.scatter(data["total_fiat"],data["total_biat"],c=data["color"],alpha=0.5, s=12)
+plt.xscale('log')
+plt.yscale('log')
 plt.title("Scatter plot for datapoints")
 plt.xlabel("total_fiat")
 plt.ylabel("total_biat")
@@ -68,7 +72,9 @@ xtest["class1"]=pred
 xtest["color"]=xtest["class1"].apply(lambda x : "blue" if x=="VPN" else "red")
 
 
-plt.scatter(xtest["total_fiat"],xtest["total_biat"],c=xtest["color"])
+plt.scatter(xtest["total_fiat"],xtest["total_biat"],c=xtest["color"],alpha=0.5, s=12)
+plt.xscale('log')
+plt.yscale('log')
 plt.title("Scatter with test data sets")
 plt.xlabel("total_fiat")
 plt.ylabel("total_biat")
@@ -87,7 +93,9 @@ for i in range(4,11):
   test["color"]=test["class1"].apply(lambda x : "blue" if x=="VPN" else "red")
 
 
-  plt.scatter(xtest["total_fiat"],xtest["total_biat"],c=xtest["color"])
+  plt.scatter(xtest["total_fiat"],xtest["total_biat"],c=xtest["color"],alpha=0.5, s=12)
+  plt.xscale('log')
+  plt.yscale('log')
   plt.title("Scatter with test data sets")
   plt.xlabel("total_fiat")
   plt.ylabel("total_biat")
