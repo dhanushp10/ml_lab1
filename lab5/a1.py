@@ -129,6 +129,7 @@ x=np.array(range(2,7))
 plt.plot(x,sil_score)
 plt.plot(x,cal_score)
 plt.plot(x,davi_score)
+plt.show()
 
 #a7
 distorsions=list()
@@ -136,3 +137,5 @@ for k in range(2, 20):
    kmeans = KMeans(n_clusters=k).fit(attr)
    distorsions.append(kmeans.inertia_)
 plt.plot(distorsions)
+plt.show()
+
