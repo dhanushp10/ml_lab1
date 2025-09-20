@@ -140,7 +140,7 @@ def find_best_feature(data):
     return max(ig_scores, key=ig_scores.get)
 
 # to build tree
-def build_tree(data, depth=0, max_depth=3):
+def build_tree(data, depth=0, max_depth=50):
     print("  " * depth + f"Node depth {depth}, samples={len(data)}")
 
    
@@ -169,7 +169,7 @@ def build_tree(data, depth=0, max_depth=3):
     return tree
 
 
-tree = build_tree(df, max_depth=3)
+tree = build_tree(df, max_depth=50)
 
 print("Final Decision Tree ->")
 print(tree)
@@ -178,7 +178,7 @@ print(tree)
 from sklearn.tree import DecisionTreeClassifier,plot_tree
 import matplotlib.pyplot as plt
 
-model = DecisionTreeClassifier(criterion="entropy", max_depth=4, random_state=0)
+model = DecisionTreeClassifier(criterion="entropy", max_depth=50, random_state=0)
 model.fit(X, y)
 plt.figure(figsize=(18, 10))
 plot_tree(model,feature_names=X.columns,class_names=y.unique(),filled=True,rounded=True,fontsize=9)
@@ -196,7 +196,7 @@ y_labels = df[target].values
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y_labels)
 
-decision_tree = DecisionTreeClassifier(criterion="entropy", max_depth=4, random_state=0)
+decision_tree = DecisionTreeClassifier(criterion="entropy", max_depth=50, random_state=0)
 decision_tree.fit(X_values, y_encoded)
 
 x_range_min, x_range_max = 0, 1e7

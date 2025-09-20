@@ -33,7 +33,7 @@ col = [
     "std_idle",
     "class1"
 ]
-df=pd.read_csv("ml_lab1\lab3\lab3_vpn_nonvpndataset.txt",names=col)
+df=pd.read_csv(r"C:\Users\dhanu\OneDrive\Desktop\jup\ml_lab1\lab3\lab3_vpn_nonvpndataset.txt",names=col)
 
 df.head()
 print(df.head())
@@ -47,7 +47,7 @@ vpn=df[df["class1"]==1]
 nonvpn=df[df["class1"]==0]
 print(vpn.shape)
 
-#a2
+# a2
 # for label in col[:-1]:
 #   plt.hist(df[df["class1"]==1][label] , color="blue",label="gamma",alpha=0.7,density=True)
 #   plt.hist(df[df["class1"]==0][label] , color="red",label="gamma",alpha=0.7,density=True)

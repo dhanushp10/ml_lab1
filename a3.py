@@ -3,7 +3,7 @@ import numpy as np
 import statistics as st
 import matplotlib.pyplot as plt
 
-excel_file_path = "ml_lab1\Lab Session Data.xlsx"
+excel_file_path = r"C:\Users\dhanu\OneDrive\Desktop\jup\ml_lab1\Lab Session Data.xlsx"
 
 df = pd.read_excel(excel_file_path,sheet_name='IRCTC Stock Price')
 

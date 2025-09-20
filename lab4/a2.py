@@ -10,7 +10,7 @@ def evaluate_price_prediction(actual, predicted): # Function to calculate metric
     return mse, rmse, mape, r2
 
 
-df = pd.read_excel("ml_lab1\Lab Session Data.xlsx", sheet_name="Purchase data")
+df = pd.read_excel(r"C:\Users\dhanu\OneDrive\Desktop\jup\ml_lab1\Lab Session Data.xlsx", sheet_name="Purchase data")
 
 A = df[['Candies (#)', 'Mangoes (Kg)', 'Milk Packets (#)']].values # Selecting only numeric columns
 C = df['Payment (Rs)'].values
